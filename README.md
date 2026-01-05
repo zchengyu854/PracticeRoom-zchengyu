@@ -208,7 +208,8 @@ chore: 构建/工具相关
 5. 配置防火墙规则，限制数据库、Redis等服务的访问
 
 ## 首页
-<img width="2487" height="1217" alt="image" src="https://github.com/user-attachments/assets/2f1f7831-712e-430d-95ba-3b898f3abfff" />
+<img width="2549" height="1242" alt="image" src="https://github.com/user-attachments/assets/7229aaeb-333a-4250-bbef-5b6ebd6dbd63" />
+
 
 ## 管理员页面
 <img width="2549" height="1242" alt="image" src="https://github.com/user-attachments/assets/c9181429-3b24-4d52-8a7c-7c32f03e3eda" />

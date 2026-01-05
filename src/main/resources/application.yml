@@ -1,0 +1,101 @@
+server:
+  port: 8080  # 服务器端口
+
+spring:
+  application:
+    name: smart-learning-platform  # 智能学习平台应用名称
+
+  # Redis缓存配置
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}  # Redis服务器地址
+      port: ${REDIS_PORT:6379}       # Redis服务器端口
+      database: ${REDIS_DB:0}        # 使用的数据库索引
+      timeout: 10000                 # 连接超时时间（毫秒）
+      lettuce:
+        pool:
+          max-active: 8               # 连接池最大连接数
+          max-wait: -1               # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-idle: 8                # 连接池中的最大空闲连接
+          min-idle: 0                # 连接池中的最小空闲连接
+
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL驱动
+    url: ${DB_URL:jdbc:mysql://localhost:3306/exam_system?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai}
+    username: ${DB_USERNAME:root}  # 数据库用户名
+    password: ${DB_PASSWORD:root}  # 数据库密码
+
+  # Jackson配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss  # 日期格式
+    time-zone: GMT+8                  # 时区设置
+    default-property-inclusion: NON_NULL  # 不序列化null值
+
+  servlet:
+    multipart:
+      max-file-size: 150MB   # 单个文件最大150MB
+      max-request-size: 150MB # 单次请求最大150MB
+
+# MyBatis Plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true  # 下划线转驼峰
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # SQL日志输出
+  global-config:
+    db-config:
+      id-type: auto  # 主键策略
+      logic-delete-field: deleted  # 逻辑删除字段
+      logic-delete-value: 1  # 逻辑删除值
+      logic-not-delete-value: 0  # 逻辑未删除值
+  mapper-locations: classpath*:/mapper/**/*.xml  # Mapper文件位置
+  type-aliases-package: com.exam.entity
+
+# 日志配置
+logging:
+  level:
+    com.exam: debug  # 项目包路径的日志级别
+    org.springframework.web: debug  # Spring Web日志级别
+
+# AI 服务配置 - 千问大模型
+qwen:
+  api:
+    base-url: ${QWEN_API_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1}
+    api-key: ${QWEN_API_KEY:your-api-key-here}  # 千问API密钥
+    model: ${QWEN_MODEL:qwen-plus}  # 使用qwen-plus模型
+    max-tokens: 2000  # 最大生成token数
+    temperature: 0.3  # 较低的temperature确保判卷结果稳定
+
+# MinIO 文件存储配置
+minio:
+  endpoint: ${MINIO_ENDPOINT:http://localhost:9000}  # MinIO服务器地址
+  bucket-name: ${MINIO_BUCKET:exam-system}  # 存储桶名称
+  username: ${MINIO_USERNAME:minioadmin}  # 用户名
+  password: ${MINIO_PASSWORD:minioadmin}  # 密码
+  url-expiry: 604800  # URL过期时间（秒），默认7天
+
+# 本地文件存储配置（备用）
+# file:
+#   upload:
+#     path: ./uploads/  # 本地文件存储路径
+#     url-prefix: http://localhost:8080/files/  # 文件访问URL前缀
+
+# Knife4j API文档配置
+knife4j:
+  enable: true  # 启用Knife4j增强功能
+  openapi:
+    title: 🎓 智能考试系统API文档  # 文档标题
+    description: 📚 基于Spring Boot + MyBatis Plus开发的智能考试系统  # 文档描述
+    version: v1.0.0  # API版本
+    concat: 🏫 智能考试系统开发团队  # 联系人信息
+  setting:
+    language: zh_cn  # 界面语言设置为中文
+    enable-version: true  # 启用版本控制
+    enable-swagger-models: true  # 启用数据模型展示
+    enable-document-manage: true  # 启用文档管理功能
+    enable-reload-cache-parameter: false  # 禁用缓存重载参数
+    enable-after-script: true  # 启用afterScript功能
+    enable-filter-multipart-api-method-type: POST  # 过滤文件上传接口的请求方式
+    enable-filter-multipart-apis: false  # 不过滤文件上传接口
+    enable-request-cache: true  # 启用请求缓存
+    enable-host: false  # 禁用host显示

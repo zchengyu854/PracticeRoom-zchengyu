@@ -1,5 +1,7 @@
 # 智能考试系统
 
+目前没有数据库以及前端脚本及代码，待我论文通过后一并奉上，感谢大佬们的批评与指正。
+
 基于Spring Boot + MyBatis Plus开发的智能在线考试系统，支持AI智能组卷、自动判卷等功能。
 
 ## 技术栈
@@ -204,12 +206,9 @@ chore: 构建/工具相关
 4. 启用HTTPS（生产环境）
 5. 配置防火墙规则，限制数据库、Redis等服务的访问
 
-## 联系方式
+## 首页
+<img width="2487" height="1217" alt="image" src="https://github.com/user-attachments/assets/2f1f7831-712e-430d-95ba-3b898f3abfff" />
 
-- 项目地址: [GitHub Repository URL]
-- 文档地址: [Documentation URL]
-- 问题反馈: [Issues URL]
+## 管理员页面
+<img width="2549" height="1242" alt="image" src="https://github.com/user-attachments/assets/c9181429-3b24-4d52-8a7c-7c32f03e3eda" />
 
-## 许可证
-
-[MIT License]

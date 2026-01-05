@@ -23,8 +23,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL驱动
     url: ${DB_URL:jdbc:mysql://localhost:3306/exam_system?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai}
-    username: ${DB_USERNAME:root}  # 数据库用户名
-    password: ${DB_PASSWORD:root}  # 数据库密码
+    username: ${DB_USERNAME:your_db_username}  # 数据库用户名
+    password: ${DB_PASSWORD:your_db_password}  # 数据库密码
 
   # Jackson配置
   jackson:
@@ -70,8 +70,8 @@ qwen:
 minio:
   endpoint: ${MINIO_ENDPOINT:http://localhost:9000}  # MinIO服务器地址
   bucket-name: ${MINIO_BUCKET:exam-system}  # 存储桶名称
-  username: ${MINIO_USERNAME:minioadmin}  # 用户名
-  password: ${MINIO_PASSWORD:minioadmin}  # 密码
+  username: ${MINIO_USERNAME:your_minio_username}  # 用户名
+  password: ${MINIO_PASSWORD:your_minio_password}  # 密码
   url-expiry: 604800  # URL过期时间（秒），默认7天
 
 # 本地文件存储配置（备用）
